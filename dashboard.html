@@ -297,6 +297,18 @@ function clearResult() {
 <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     ⬆️ Back to Top
 </button>
+    <script>
+function logout() {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("username");
+    localStorage.removeItem("user");
+
+    window.location.href = "Login.html";
+}
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
