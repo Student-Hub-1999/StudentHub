@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Test Result - StudentHub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>📊 Test Result</h1>
+
+<div class="card">
+
+    <h2>🎉 Your Result</h2>
+
+    <p>
+        <strong>Score:</strong>
+        <span id="score">0 / 3</span>
+    </p>
+
+    <p>
+        <strong>Percentage:</strong>
+        <span id="percentage">0%</span>
+    </p>
+
+    <p>
+        <strong>Result:</strong>
+        <span id="status">-</span>
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h3>📚 Keep Practicing!</h3>
+
+    <p>
+        Continue practicing mock tests and improve your score.
+    </p>
+
+</div>
+
+<br>
+
+<a href="dashboard.html">
+    <button>📊 Back to Dashboard</button>
+</a>
+
+<br><br>
+
+<a href="quiz.html">
+    <button>🔄 Try Again</button>
+</a>
+
+<script>
+
+    // Get saved quiz result
+    let score = localStorage.getItem("quizScore");
+    let total = localStorage.getItem("quizTotal");
+    let percentage = localStorage.getItem("quizPercentage");
+    let status = localStorage.getItem("quizStatus");
+
+    // Show result
+    if (score !== null) {
+        document.getElementById("score").innerHTML =
+            score + " / " + total;
+    }
+
+    if (percentage !== null) {
+        document.getElementById("percentage").innerHTML =
+            percentage + "%";
+    }
+
+    if (status !== null) {
+
+        if (status === "Pass") {
+            document.getElementById("status").innerHTML =
+                "✅ PASS";
+        } else {
+            document.getElementById("status").innerHTML =
+                "❌ FAIL";
+        }
+    }
+
+    // Apply saved dark mode
+    let savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL Mock Test</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>📝 SSC CGL Mock Test</h1>
+<p>Test your knowledge</p>
+</header>
+
+<section class="features">
+
+<div class="feature-card">
+<h3>Question 1</h3>
+
+<p>What is the capital of India?</p>
+
+<input type="radio" name="q1"> Mumbai<br><br>
+<input type="radio" name="q1" id="correct"> New Delhi<br><br>
+<input type="radio" name="q1"> Kolkata<br><br>
+<input type="radio" name="q1"> Chennai<br><br>
+
+<button onclick="checkAnswer()">Submit Answer</button>
+
+<p id="result"></p>
+
+</div>
+
+</section>
+
+<script>
+function checkAnswer(){
+if(document.getElementById("correct").checked){
+document.getElementById("result").innerHTML="✅ Correct Answer!";
+document.getElementById("result").style.color="green";
+}else{
+document.getElementById("result").innerHTML="❌ Wrong Answer!";
+document.getElementById("result").style.color="red";
+}
+}
+</script>
+
+</body>
+</html>

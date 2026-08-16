@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSC Mock Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>📝 SSC Mock Test</h1>
+<h2>⏳ Time Left: <span id="timer">60</span> seconds</h2>
+<form id="quizForm">
+
+<p><b>1. What is the capital of India?</b></p>
+
+<input type="radio" name="q1" value="A"> Mumbai<br>
+<input type="radio" name="q1" value="B"> Delhi<br>
+<input type="radio" name="q1" value="C"> Kolkata<br>
+<input type="radio" name="q1" value="D"> Chennai<br><br>
+<p><b>2. Which planet is known as the Red Planet?</b></p>
+
+<input type="radio" name="q2" value="A"> Earth<br>
+<input type="radio" name="q2" value="B"> Mars<br>
+<input type="radio" name="q2" value="C"> Venus<br>
+<input type="radio" name="q2" value="D"> Jupiter<br><br>
+
+<p><b>3. 15 + 25 = ?</b></p>
+
+<input type="radio" name="q3" value="A"> 30<br>
+<input type="radio" name="q3" value="B"> 35<br>
+<input type="radio" name="q3" value="C"> 40<br>
+<input type="radio" name="q3" value="D"> 45<br><br>
+
+<button type="button" onclick="checkQuiz()">Submit Test</button>
+
+</form>
+
+<h2 id="result"></h2>
+<button id="retryBtn" onclick="location.reload()" style="display:none;">
+    🔄 Try Again
+</button>
+<br><br>
+
+<a href="dashboard.html">
+    <button>🏠 Back to Dashboard</button>
+</a>
+
+<script src="quiz.js"></script>
+
+</body>
+</html>

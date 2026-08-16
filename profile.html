@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - StudentHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="settings.html">⚙️ Settings</a>
+</nav>
+
+<h1>👤 My Profile</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🎓 Student Information</h2>
+
+        <p>
+            <strong>Name:</strong>
+            <span id="profileName">Student</span>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <span id="profileEmail">Not available</span>
+        </p>
+
+        <p>
+            <strong>Course:</strong> BCA
+        </p>
+
+        <p>
+            <strong>Target Exam:</strong>
+            <span id="profileTarget">SSC CGL 2026</span>
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>📚 Preparation</h2>
+
+        <p><strong>Notes:</strong> 25% Completed</p>
+        <p><strong>Mock Tests:</strong> 5 Tests Attempted</p>
+        <p><strong>Current Affairs:</strong> Updated</p>
+    </div>
+
+    <div class="card">
+        <h2>🎯 My Goal</h2>
+
+        <p>
+            Prepare consistently and achieve success in
+            <strong>SSC CGL 2026</strong>.
+        </p>
+    </div>
+
+    <div class="card">
+        <a href="dashboard.html">
+            <button>📊 Back to Dashboard</button>
+        </a>
+    </div>
+
+</div>
+
+<div class="bottom-nav">
+    <a href="index.html">🏠<br>Home</a>
+    <a href="notes.html">📚<br>Notes</a>
+    <a href="mocktest.html">📝<br>Tests</a>
+    <a href="profile.html">👤<br>Profile</a>
+</div>
+
+<footer class="footer">
+    <h3>StudentHub</h3>
+    <p>Prepare • Practice • Succeed</p>
+    <p>© 2026 StudentHub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Get registered student information
+    let name = localStorage.getItem("studentName");
+    let email = localStorage.getItem("studentEmail");
+    let targetExam = localStorage.getItem("targetExam");
+
+    // Show student name
+    if (name) {
+        document.getElementById("profileName").innerHTML = name;
+    }
+
+    // Show student email
+    if (email) {
+        document.getElementById("profileEmail").innerHTML = email;
+    }
+
+    // Show target exam
+    if (targetExam) {
+        document.getElementById("profileTarget").innerHTML = targetExam;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - StudentHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<h1>📝 Student Registration</h1>
+
+<div class="login-box">
+
+    <input
+        type="text"
+        id="studentName"
+        placeholder="Full Name"
+    >
+
+    <input
+        type="email"
+        id="studentEmail"
+        placeholder="Email"
+    >
+
+    <input
+        type="password"
+        id="studentPassword"
+        placeholder="Create Password"
+    >
+
+    <button onclick="registerStudent()">Register</button>
+
+    <p>
+        Already have an account?
+        <a href="login.html">Login</a>
+    </p>
+
+</div>
+
+<script>
+function registerStudent() {
+
+    let name = document.getElementById("studentName").value.trim();
+    let email = document.getElementById("studentEmail").value.trim();
+    let password = document.getElementById("studentPassword").value;
+
+    if (name === "") {
+        alert("Please enter your name.");
+        return;
+    }
+
+    if (email === "") {
+        alert("Please enter your email.");
+        return;
+    }
+
+    if (password === "") {
+        alert("Please create a password.");
+        return;
+    }
+
+    localStorage.setItem("studentName", name);
+    localStorage.setItem("studentEmail", email);
+    localStorage.setItem("studentPassword", password);
+
+    alert("Registration successful!");
+
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

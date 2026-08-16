@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>⚙️ Settings</h1>
+<h3 id="userName"></h3>
+
+<div class="card">
+
+    <h3>Target Exam</h3>
+
+    <select id="exam">
+        <option>SSC CGL</option>
+        <option>SSC CHSL</option>
+        <option>SSC MTS</option>
+        <option>SSC GD</option>
+        <option>Banking</option>
+        <option>Railway</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="saveSettings()">Save</button>
+    <br><br>
+
+<button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+<br><br>
+
+<a href="dashboard.html">
+    <button>📊 Back to Dashboard</button>
+</a>
+
+</div>
+
+<script>
+function saveSettings() {
+    let exam = document.getElementById("exam").value;
+    localStorage.setItem("targetExam", exam);
+    alert("Settings Saved!");
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+let user = localStorage.getItem("studentName");
+
+if (user) {
+    document.getElementById("userName").innerHTML = "Welcome, " + user + " 👋";
+}
+
+window.onload = function () {
+
+    let savedExam = localStorage.getItem("targetExam");
+
+    if (savedExam) {
+        document.getElementById("exam").value = savedExam;
+    }
+
+    let savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+}
+</script>
+
+</body>
+</html>

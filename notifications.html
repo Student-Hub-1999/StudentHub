@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - StudentHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🔔 Notifications</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h3>📢 SSC CGL 2026</h3>
+        <p>SSC CGL 2026 notification has been released.</p>
+        <small>Latest Update</small>
+    </div>
+
+    <div class="card">
+        <h3>📰 Current Affairs</h3>
+        <p>Daily current affairs have been updated.</p>
+        <small>Today</small>
+    </div>
+
+    <div class="card">
+        <h3>📚 New Notes</h3>
+        <p>New study notes have been uploaded.</p>
+        <small>New</small>
+    </div>
+
+    <div class="card">
+        <h3>📝 New Mock Test</h3>
+        <p>A new mock test is available for practice.</p>
+        <small>New Test</small>
+    </div>
+
+</div>
+
+<a href="dashboard.html">
+    <button>⬅ Back to Dashboard</button>
+</a>
+
+<footer class="footer">
+    <h3>StudentHub</h3>
+    <p>Prepare • Practice • Succeed</p>
+    <p>© 2026 StudentHub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Apply saved dark mode
+    let savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+</script>
+
+</body>
+</html>
