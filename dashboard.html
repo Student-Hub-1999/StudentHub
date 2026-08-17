@@ -6,122 +6,390 @@
     <title>StudentHub Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <h1 id="welcomeMessage">👋 Welcome to StudentHub</h1>
 <p id="dateTime"></p>
 
+<!-- TOP BUTTONS -->
 <div class="top-buttons">
-    <a href="profile.html"><button>👤 Profile</button></a>
-    <a href="settings.html"><button>⚙️ Settings</button></a>
-    <a href="notifications.html"><button>🔔 Notifications</button></a>
+    <a href="profile.html">
+        <button>👤 Profile</button>
+    </a>
+
+    <a href="settings.html">
+        <button>⚙️ Settings</button>
+    </a>
+
+    <a href="notifications.html">
+        <button>🔔 Notifications</button>
+    </a>
+
     <a href="about.html">
         <button>ℹ️ About</button>
     </a>
+
     <button onclick="logout()">🚪 Logout</button>
 </div>
 
 <div class="container">
 
-<div class="card">
-    <h2>👤 Student Profile</h2>
-    <p><strong>Course:</strong> BCA</p>
-    <p><strong>Target:</strong> SSC CGL 2026</p>
-</div>
-
-<div class="card">
-    <h2>📚 Notes Progress</h2>
-    <p>Completed: 25%</p>
-</div>
-
-<div class="card">
-    <h2>📝 Mock Tests</h2>
-    <p>Tests Attempted: 5</p>
-</div>
-
-<div class="card">
-    <h2>🎯 Target Exam</h2>
-    <p id="targetExam">SSC CGL 2026</p>
-</div>
-
-<script>
-    let savedExam = localStorage.getItem("targetExam");
-
-    if (savedExam) {
-        document.getElementById("targetExam").innerHTML = savedExam;
-    }
-</script>
-
-<div class="card">
-    <h2>🔥 Latest Updates</h2>
-    <p>📢 SSC CGL Notification Released</p>
-    <p>📰 Current Affairs Updated</p>
-    <p>📝 New Mock Test Added</p>
-</div>
-
-<div class="card">
-    <h2>📊 My Progress</h2>
-
-    <p>📚 Notes</p>
-    <div class="progress-bar">
-        <div class="progress-fill" style="width:25%;">25%</div>
+    <!-- STUDENT PROFILE -->
+    <div class="card">
+        <h2>👤 Student Profile</h2>
+        <p><strong>Course:</strong> BCA</p>
+        <p><strong>Target:</strong> SSC CGL 2026</p>
     </div>
 
-    <div class="progress-item">
-        🔥 Study Streak: <span id="studyStreak">0</span> days
+    <!-- NOTES PROGRESS -->
+    <div class="card">
+        <h2>📚 Notes Progress</h2>
+        <p>Completed: 25%</p>
     </div>
 
-    <div class="progress-item">
-        📅 Last Study Visit: <span id="lastStudyVisit">Today</span>
+    <!-- MOCK TESTS -->
+    <div class="card">
+        <h2>📝 Mock Tests</h2>
+        <p>Tests Attempted: 5</p>
     </div>
 
-    <p>📝 Mock Test Score</p>
-    <div class="progress-bar">
-        <div id="mockProgress" class="progress-fill" style="width:0%;">
-            0%
+    <!-- TARGET EXAM -->
+    <div class="card">
+        <h2>🎯 Target Exam</h2>
+        <p id="targetExam">SSC CGL 2026</p>
+    </div>
+
+    <!-- LATEST UPDATES -->
+    <div class="card">
+        <h2>🔥 Latest Updates</h2>
+        <p>📢 SSC CGL Notification Released</p>
+        <p>📰 Current Affairs Updated</p>
+        <p>📝 New Mock Test Added</p>
+    </div>
+
+    <!-- MY PROGRESS -->
+    <div class="card">
+        <h2>📊 My Progress</h2>
+
+        <p>📚 Notes</p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width:25%;">
+                25%
+            </div>
         </div>
+
+        <div class="progress-item">
+            🔥 Study Streak:
+            <span id="studyStreak">0</span> days
+        </div>
+
+        <div class="progress-item">
+            📅 Last Study Visit:
+            <span id="lastStudyVisit">Today</span>
+        </div>
+
+        <p>📝 Mock Test Score</p>
+
+        <div class="progress-bar">
+            <div id="mockProgress"
+                 class="progress-fill"
+                 style="width:0%;">
+                0%
+            </div>
+        </div>
+
+        <p>🎯 SSC CGL Preparation</p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width:40%;">
+                40%
+            </div>
+        </div>
+
+        <p id="lastResult">
+            📊 Last Result: No test attempted
+        </p>
     </div>
 
-    <p>🎯 SSC CGL Preparation</p>
-    <div class="progress-bar">
-        <div class="progress-fill" style="width:40%;">40%</div>
+    <!-- CLEAR RESULT -->
+    <div class="card">
+        <button onclick="clearResult()">
+            🗑️ Clear Last Result
+        </button>
     </div>
 
-    <p id="lastResult">📊 Last Result: No test attempted</p>
+    <!-- RESET PROGRESS -->
+    <div class="card">
+        <button onclick="confirmReset()">
+            🔄 Reset Progress
+        </button>
+    </div>
+
+    <!-- REFRESH -->
+    <div class="card">
+        <button onclick="location.reload()">
+            🔃 Refresh Progress
+        </button>
+    </div>
+
+    <!-- RECENT ACTIVITY -->
+    <div class="card">
+        <h2>📌 Recent Activity</h2>
+
+        <ul>
+            <li>✅ Completed Number System Notes</li>
+            <li>📝 Attempted SSC CGL Mock Test</li>
+            <li>📰 Read Today's Current Affairs</li>
+        </ul>
+    </div>
+
+    <!-- UPCOMING EXAMS -->
+    <div class="card">
+        <h2>📅 Upcoming Exams</h2>
+
+        <ul>
+            <li>SSC CGL 2026</li>
+            <li>SSC MTS</li>
+            <li>UP Police</li>
+            <li>Railway NTPC</li>
+        </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="card">
+        <h2>⚡ Quick Links</h2>
+
+        <p>
+            <a href="notes.html">📚 Open Notes</a>
+        </p>
+
+        <p>
+            <a href="mocktest.html">📝 Start Mock Test</a>
+        </p>
+
+        <p>
+            <a href="currentaffairs.html">📰 Current Affairs</a>
+        </p>
+
+        <p>
+            <a href="papers.html">📄 Previous Year Papers</a>
+        </p>
+
+        <p>
+            <a href="profile.html">👤 My Profile</a>
+        </p>
+    </div>
+
+    <!-- LAST RESULT -->
+    <div class="card">
+        <a href="result.html">
+            📊 View Last Result
+        </a>
+    </div>
+
+    <!-- MOTIVATION -->
+    <div class="card">
+        <h2>💡 Today's Motivation</h2>
+
+        <p>
+            "Success doesn't come from what you do occasionally.
+            It comes from what you do consistently."
+        </p>
+    </div>
+
+    <!-- STUDY TIPS -->
+    <div class="card">
+        <h2>💡 Quick Study Tips</h2>
+
+        <ul>
+            <li>📖 Revise your notes every day.</li>
+            <li>📝 Practice mock tests regularly.</li>
+            <li>⏰ Follow a fixed study schedule.</li>
+            <li>🎯 Focus on your target exam.</li>
+        </ul>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="card">
+        <h2>⏳ SSC CGL 2026 Countdown</h2>
+
+        <p id="examCountdown">
+            Calculating...
+        </p>
+    </div>
+
+    <!-- DAILY STUDY GOAL -->
+    <div class="card">
+        <h2>🎯 Daily Study Goal</h2>
+
+        <p>
+            Target:
+            <strong>3 Hours</strong>
+            of study today
+        </p>
+
+        <p>
+            📚 Stay consistent and complete your target!
+        </p>
+    </div>
+
+    <!-- STUDY SUBJECTS -->
+    <div class="card">
+        <h2>📚 Study Subjects</h2>
+
+        <p>🔢 Quantitative Aptitude</p>
+        <p>🧠 Reasoning</p>
+        <p>📖 English</p>
+        <p>🌍 General Awareness</p>
+    </div>
+
+    <!-- STUDY RESOURCES -->
+    <div class="card">
+        <h2>📖 Study Resources</h2>
+
+        <p>📚 Notes & Study Material</p>
+        <p>📝 Mock Tests</p>
+        <p>📰 Current Affairs</p>
+        <p>📄 Previous Year Papers</p>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="card">
+        <h2>✅ Exam Preparation Checklist</h2>
+
+        <p>☐ Complete daily study goal</p>
+        <p>☐ Revise important notes</p>
+        <p>☐ Attempt a mock test</p>
+        <p>☐ Read current affairs</p>
+        <p>☐ Practice previous year papers</p>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="card">
+        <h2>🏆 Student Achievements</h2>
+
+        <p>🏅 Notes completed</p>
+        <p>🔥 Study streak started</p>
+        <p>📝 Mock test attempted</p>
+        <p>🎯 SSC CGL preparation started</p>
+    </div>
+
+    <!-- DAILY SCHEDULE -->
+    <div class="card">
+        <h2>🕐 Daily Study Schedule</h2>
+
+        <p>🌅 Morning — Quantitative Aptitude</p>
+        <p>☀️ Afternoon — Reasoning</p>
+        <p>🌆 Evening — English</p>
+        <p>🌙 Night — General Awareness</p>
+    </div>
+
+    <!-- CONTACT SUPPORT -->
+    <div class="card">
+        <h2>📞 Need Help?</h2>
+
+        <p>
+            Have a question or facing a problem?
+        </p>
+
+        <a href="contact.html">
+            <button>📩 Contact Support</button>
+        </a>
+    </div>
+
+    <!-- LOGOUT -->
+    <div class="card">
+        <h2>🚪 Logout</h2>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+    </div>
+
 </div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+
+    <a href="index.html">
+        🏠<br>Home
+    </a>
+
+    <a href="notes.html">
+        📚<br>Notes
+    </a>
+
+    <a href="mocktest.html">
+        📝<br>Tests
+    </a>
+
+    <a href="profile.html">
+        👤<br>Profile
+    </a>
+
+    <a href="about.html">
+        ℹ️<br>About
+    </a>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <h3>StudentHub</h3>
+
+    <p>
+        Prepare • Practice • Succeed
+    </p>
+
+    <p>
+        © 2026 StudentHub. All Rights Reserved.
+    </p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button
+    id="backToTop"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ⬆️ Back to Top
+</button>
+
+<!-- JAVASCRIPT FILES -->
+<script src="dashboard.js"></script>
+<script src="script.js"></script>
 
 <script>
-    let savedPercentage = localStorage.getItem("quizPercentage");
+/* Target Exam */
+let savedExam = localStorage.getItem("targetExam");
 
-    if (savedPercentage !== null) {
+if (savedExam) {
+    document.getElementById("targetExam").innerHTML = savedExam;
+}
 
-        let percentage = Number(savedPercentage);
 
-        document.getElementById("mockProgress").style.width =
-            percentage + "%";
+/* Mock Test Result */
+let savedPercentage =
+    localStorage.getItem("quizPercentage");
 
-        document.getElementById("mockProgress").innerHTML =
-            percentage + "%";
+if (savedPercentage !== null) {
 
-        document.getElementById("lastResult").innerHTML =
-            "📊 Last Result: " + percentage + "%";
-    }
-</script>
+    let percentage = Number(savedPercentage);
 
-<div class="card">
-    <button onclick="clearResult()">🗑️ Clear Last Result</button>
-</div>
+    document.getElementById("mockProgress").style.width =
+        percentage + "%";
 
-<div class="card">
-    <button onclick="confirmReset()">🔄 Reset Progress</button>
-</div>
+    document.getElementById("mockProgress").innerHTML =
+        percentage + "%";
 
-<div class="card">
-    <button onclick="location.reload()">🔃 Refresh Progress</button>
-</div>
+    document.getElementById("lastResult").innerHTML =
+        "📊 Last Result: " + percentage + "%";
+}
 
-<script>
+
+/* Reset Progress */
 function resetProgress() {
+
     localStorage.removeItem("quizScore");
     localStorage.removeItem("quizTotal");
     localStorage.removeItem("quizPercentage");
@@ -132,19 +400,23 @@ function resetProgress() {
     location.reload();
 }
 
+
+/* Confirm Reset */
 function confirmReset() {
-    let confirmReset = confirm(
+
+    let userConfirm = confirm(
         "Are you sure you want to reset your progress?"
     );
 
-    if (confirmReset) {
+    if (userConfirm) {
         resetProgress();
     }
 }
-</script>
 
-<script>
+
+/* Clear Last Result */
 function clearResult() {
+
     localStorage.removeItem("quizScore");
     localStorage.removeItem("quizTotal");
     localStorage.removeItem("quizPercentage");
@@ -154,161 +426,19 @@ function clearResult() {
 
     location.reload();
 }
-</script>
 
-<div class="card">
-    <h2>📌 Recent Activity</h2>
-    <ul>
-        <li>✅ Completed Number System Notes</li>
-        <li>📝 Attempted SSC CGL Mock Test</li>
-        <li>📰 Read Today's Current Affairs</li>
-    </ul>
-</div>
 
-<div class="card">
-    <h2>📅 Upcoming Exams</h2>
-    <ul>
-        <li>SSC CGL 2026</li>
-        <li>SSC MTS</li>
-        <li>UP Police</li>
-        <li>Railway NTPC</li>
-    </ul>
-</div>
-
-<div class="card">
-    <h2>⚡ Quick Links</h2>
-
-    <p><a href="notes.html">📚 Open Notes</a></p>
-    <p><a href="mocktest.html">📝 Start Mock Test</a></p>
-    <p><a href="currentaffairs.html">📰 Current Affairs</a></p>
-    <p><a href="papers.html">📄 Previous Year Papers</a></p>
-    <p><a href="profile.html">👤 My Profile</a></p>
-</div>
-
-<div class="card">
-    <a href="result.html">
-        📊 View Last Result
-    </a>
-</div>
-
-<div class="card">
-    <h2>💡 Today's Motivation</h2>
-    <p>
-        "Success doesn't come from what you do occasionally.
-        It comes from what you do consistently."
-    </p>
-</div>
-
-<div class="card">
-    <h2>💡 Quick Study Tips</h2>
-    <ul>
-        <li>📖 Revise your notes every day.</li>
-        <li>📝 Practice mock tests regularly.</li>
-        <li>⏰ Follow a fixed study schedule.</li>
-        <li>🎯 Focus on your target exam.</li>
-    </ul>
-</div>
-
-<div class="card">
-    <h2>⏳ SSC CGL 2026 Countdown</h2>
-    <p id="examCountdown">Calculating...</p>
-</div>
-
-<div class="card">
-    <h2>🎯 Daily Study Goal</h2>
-    <p>Target: <strong>3 Hours</strong> of study today</p>
-    <p>📚 Stay consistent and complete your target!</p>
-</div>
-
-<!-- STEP 121: STUDY SUBJECTS -->
-<div class="card">
-    <h2>📚 Study Subjects</h2>
-    <p>🔢 Quantitative Aptitude</p>
-    <p>🧠 Reasoning</p>
-    <p>📖 English</p>
-    <p>🌍 General Awareness</p>
-</div>
-<div class="card">
-    <h2>📖 Study Resources</h2>
-    <p>📚 Notes & Study Material</p>
-    <p>📝 Mock Tests</p>
-    <p>📰 Current Affairs</p>
-    <p>📄 Previous Year Papers</p>
-</div>
-<div class="card">
-    <h2>✅ Exam Preparation Checklist</h2>
-
-    <p>☐ Complete daily study goal</p>
-    <p>☐ Revise important notes</p>
-    <p>☐ Attempt a mock test</p>
-    <p>☐ Read current affairs</p>
-    <p>☐ Practice previous year papers</p>
-</div>
-<div class="card">
-    <h2>🏆 Student Achievements</h2>
-    <p>🏅 Notes completed</p>
-    <p>🔥 Study streak started</p>
-    <p>📝 Mock test attempted</p>
-    <p>🎯 SSC CGL preparation started</p>
-</div>
-<div class="card">
-    <h2>🕐 Daily Study Schedule</h2>
-    <p>🌅 Morning — Quantitative Aptitude</p>
-    <p>☀️ Afternoon — Reasoning</p>
-    <p>🌆 Evening — English</p>
-    <p>🌙 Night — General Awareness</p>
-</div>
-<div class="card">
-    <h2>📞 Need Help?</h2>
-    <p>Have a question or facing a problem?</p>
-    <a href="contact.html">
-        <button>📩 Contact Support</button>
-    </a>
-</div>
-
-<div class="card">
-    <h2>🚪 Logout</h2>
-    <button onclick="logout()">Logout</button>
-</div>
-
-</div>
-
-<div class="bottom-nav">
-    <a href="index.html">🏠<br>Home</a>
-    <a href="notes.html">📚<br>Notes</a>
-    <a href="mocktest.html">📝<br>Tests</a>
-    <a href="profile.html">👤<br>Profile</a>
-    <a href="about.html">ℹ️<br>About</a>
-</div>
-
-<footer class="footer">
-    <h3>StudentHub</h3>
-    <p>Prepare • Practice • Succeed</p>
-    <p>© 2026 StudentHub. All Rights Reserved.</p>
-</footer>
-
-<script src="dashboard.js"></script>
-<script src="script.js"></script>
-
-<footer class="dashboard-footer">
-    <p>© 2026 StudentHub | Learn • Practice • Succeed 🚀</p>
-</footer>
-
-<button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    ⬆️ Back to Top
-</button>
-    <script>
+/* Logout */
 function logout() {
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("username");
-    localStorage.removeItem("user");
 
-    window.location.href = "Login.html";
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("studentName");
+    localStorage.removeItem("studentEmail");
+    localStorage.removeItem("studentPassword");
+
+    window.location.href = "login.html";
 }
 </script>
 
 </body>
-</html>
-
-</body>
-</html>
+</html>                
