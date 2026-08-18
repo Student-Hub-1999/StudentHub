@@ -440,5 +440,11 @@ function logout() {
 }
 </script>
 
+<script>
+function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "Login.html";
+}
+</script>
 </body>
 </html>                
