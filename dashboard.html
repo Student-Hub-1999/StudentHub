@@ -14,6 +14,7 @@
 
 <!-- TOP BUTTONS -->
 <div class="top-buttons">
+
     <a href="profile.html">
         <button>👤 Profile</button>
     </a>
@@ -30,11 +31,11 @@
         <button>ℹ️ About</button>
     </a>
 
-    function logout() {
-    localStorage.removeItem("isLoggedIn");
-    window.location.href = "index.html";
-}
+    <!-- TOP LOGOUT -->
+    <button onclick="logout()">🚪 Logout</button>
+
 </div>
+
 
 <div class="container">
 
@@ -45,11 +46,13 @@
         <p><strong>Target:</strong> SSC CGL 2026</p>
     </div>
 
+
     <!-- NOTES PROGRESS -->
     <div class="card">
         <h2>📚 Notes Progress</h2>
         <p>Completed: 25%</p>
     </div>
+
 
     <!-- MOCK TESTS -->
     <div class="card">
@@ -57,11 +60,13 @@
         <p>Tests Attempted: 5</p>
     </div>
 
+
     <!-- TARGET EXAM -->
     <div class="card">
         <h2>🎯 Target Exam</h2>
         <p id="targetExam">SSC CGL 2026</p>
     </div>
+
 
     <!-- LATEST UPDATES -->
     <div class="card">
@@ -70,6 +75,7 @@
         <p>📰 Current Affairs Updated</p>
         <p>📝 New Mock Test Added</p>
     </div>
+
 
     <!-- MY PROGRESS -->
     <div class="card">
@@ -116,12 +122,14 @@
         </p>
     </div>
 
+
     <!-- CLEAR RESULT -->
     <div class="card">
         <button onclick="clearResult()">
             🗑️ Clear Last Result
         </button>
     </div>
+
 
     <!-- RESET PROGRESS -->
     <div class="card">
@@ -130,12 +138,14 @@
         </button>
     </div>
 
+
     <!-- REFRESH -->
     <div class="card">
         <button onclick="location.reload()">
             🔃 Refresh Progress
         </button>
     </div>
+
 
     <!-- RECENT ACTIVITY -->
     <div class="card">
@@ -148,6 +158,7 @@
         </ul>
     </div>
 
+
     <!-- UPCOMING EXAMS -->
     <div class="card">
         <h2>📅 Upcoming Exams</h2>
@@ -159,6 +170,7 @@
             <li>Railway NTPC</li>
         </ul>
     </div>
+
 
     <!-- QUICK LINKS -->
     <div class="card">
@@ -185,6 +197,7 @@
         </p>
     </div>
 
+
     <!-- LAST RESULT -->
     <div class="card">
         <a href="result.html">
@@ -192,7 +205,8 @@
         </a>
     </div>
 
-    <!-- MOTIVATION -->
+
+    <!-- TODAY'S MOTIVATION -->
     <div class="card">
         <h2>💡 Today's Motivation</h2>
 
@@ -201,6 +215,7 @@
             It comes from what you do consistently."
         </p>
     </div>
+
 
     <!-- STUDY TIPS -->
     <div class="card">
@@ -214,6 +229,7 @@
         </ul>
     </div>
 
+
     <!-- COUNTDOWN -->
     <div class="card">
         <h2>⏳ SSC CGL 2026 Countdown</h2>
@@ -222,6 +238,7 @@
             Calculating...
         </p>
     </div>
+
 
     <!-- DAILY STUDY GOAL -->
     <div class="card">
@@ -238,6 +255,7 @@
         </p>
     </div>
 
+
     <!-- STUDY SUBJECTS -->
     <div class="card">
         <h2>📚 Study Subjects</h2>
@@ -247,6 +265,7 @@
         <p>📖 English</p>
         <p>🌍 General Awareness</p>
     </div>
+
 
     <!-- STUDY RESOURCES -->
     <div class="card">
@@ -258,7 +277,8 @@
         <p>📄 Previous Year Papers</p>
     </div>
 
-    <!-- CHECKLIST -->
+
+    <!-- EXAM PREPARATION CHECKLIST -->
     <div class="card">
         <h2>✅ Exam Preparation Checklist</h2>
 
@@ -269,7 +289,8 @@
         <p>☐ Practice previous year papers</p>
     </div>
 
-    <!-- ACHIEVEMENTS -->
+
+    <!-- STUDENT ACHIEVEMENTS -->
     <div class="card">
         <h2>🏆 Student Achievements</h2>
 
@@ -279,7 +300,8 @@
         <p>🎯 SSC CGL preparation started</p>
     </div>
 
-    <!-- DAILY SCHEDULE -->
+
+    <!-- DAILY STUDY SCHEDULE -->
     <div class="card">
         <h2>🕐 Daily Study Schedule</h2>
 
@@ -288,6 +310,7 @@
         <p>🌆 Evening — English</p>
         <p>🌙 Night — General Awareness</p>
     </div>
+
 
     <!-- CONTACT SUPPORT -->
     <div class="card">
@@ -302,7 +325,8 @@
         </a>
     </div>
 
-    <!-- LOGOUT -->
+
+    <!-- BOTTOM LOGOUT -->
     <div class="card">
         <h2>🚪 Logout</h2>
 
@@ -312,6 +336,7 @@
     </div>
 
 </div>
+
 
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
@@ -338,8 +363,10 @@
 
 </div>
 
+
 <!-- FOOTER -->
 <footer class="footer">
+
     <h3>StudentHub</h3>
 
     <p>
@@ -349,7 +376,9 @@
     <p>
         © 2026 StudentHub. All Rights Reserved.
     </p>
+
 </footer>
+
 
 <!-- BACK TO TOP -->
 <button
@@ -358,12 +387,16 @@
     ⬆️ Back to Top
 </button>
 
+
 <!-- JAVASCRIPT FILES -->
 <script src="dashboard.js"></script>
 <script src="script.js"></script>
 
+
 <script>
-/* Target Exam */
+
+/* TARGET EXAM */
+
 let savedExam = localStorage.getItem("targetExam");
 
 if (savedExam) {
@@ -371,7 +404,8 @@ if (savedExam) {
 }
 
 
-/* Mock Test Result */
+/* MOCK TEST RESULT */
+
 let savedPercentage =
     localStorage.getItem("quizPercentage");
 
@@ -390,7 +424,8 @@ if (savedPercentage !== null) {
 }
 
 
-/* Reset Progress */
+/* RESET PROGRESS */
+
 function resetProgress() {
 
     localStorage.removeItem("quizScore");
@@ -404,7 +439,8 @@ function resetProgress() {
 }
 
 
-/* Confirm Reset */
+/* CONFIRM RESET */
+
 function confirmReset() {
 
     let userConfirm = confirm(
@@ -417,7 +453,8 @@ function confirmReset() {
 }
 
 
-/* Clear Last Result */
+/* CLEAR LAST RESULT */
+
 function clearResult() {
 
     localStorage.removeItem("quizScore");
@@ -431,23 +468,23 @@ function clearResult() {
 }
 
 
-/* Logout */
+/* LOGOUT */
+
 function logout() {
 
+    /* Only remove login status */
     localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("studentName");
-    localStorage.removeItem("studentEmail");
-    localStorage.removeItem("studentPassword");
 
-    window.location.href = "Login.html";
+    /* Keep registered account details */
+    /* studentName */
+    /* studentEmail */
+    /* studentPassword */
+
+    /* Go to Home page */
+    window.location.href = "index.html";
 }
+
 </script>
 
-<script>
-function logout() {
-    localStorage.removeItem("isLoggedIn");
-    window.location.href = "Login.html";
-}
-</script>
 </body>
-</html>                
+    </html>
