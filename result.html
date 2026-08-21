@@ -20,17 +20,17 @@
 
     <p>
         <strong>Score:</strong>
-        <span id="score">0 / 3</span>
+        <span id="score">No result available</span>
     </p>
 
     <p>
         <strong>Percentage:</strong>
-        <span id="percentage">0%</span>
+        <span id="percentage">No result available</span>
     </p>
 
     <p>
         <strong>Result:</strong>
-        <span id="status">-</span>
+        <span id="status">No result available</span>
     </p>
 
 </div>
@@ -59,44 +59,70 @@
 
 <script>
 
-    // Get saved quiz result
-    let score = localStorage.getItem("quizScore");
-    let total = localStorage.getItem("quizTotal");
-    let percentage = localStorage.getItem("quizPercentage");
-    let status = localStorage.getItem("quizStatus");
+/* =========================
+   GET SAVED QUIZ RESULT
+========================= */
 
-    // Show result
-    if (score !== null) {
-        document.getElementById("score").innerHTML =
-            score + " / " + total;
+let score = localStorage.getItem("quizScore");
+let total = localStorage.getItem("quizTotal");
+let percentage = localStorage.getItem("quizPercentage");
+
+
+/* =========================
+   SHOW SCORE
+========================= */
+
+if (score !== null && total !== null) {
+
+    document.getElementById("score").innerHTML =
+        score + " / " + total;
+}
+
+
+/* =========================
+   SHOW PERCENTAGE
+========================= */
+
+if (percentage !== null) {
+
+    document.getElementById("percentage").innerHTML =
+        percentage + "%";
+}
+
+
+/* =========================
+   SHOW PASS / FAIL
+========================= */
+
+if (percentage !== null) {
+
+    let percent = Number(percentage);
+
+    if (percent >= 50) {
+
+        document.getElementById("status").innerHTML =
+            "✅ PASS";
+
+    } else {
+
+        document.getElementById("status").innerHTML =
+            "❌ FAIL";
     }
+}
 
-    if (percentage !== null) {
-        document.getElementById("percentage").innerHTML =
-            percentage + "%";
-    }
 
-    if (status !== null) {
+/* =========================
+   DARK MODE
+========================= */
 
-        if (status === "Passed" || status === "Pass") {
-    document.getElementById("status").innerHTML =
-        "✅ PASS";
-} else {
-    document.getElementById("status").innerHTML =
-        "❌ FAIL";
-        }
-        }
-    }
+let savedTheme = localStorage.getItem("theme");
 
-    // Apply saved dark mode
-    let savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
 
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-    }
+    document.body.classList.add("dark-mode");
+}
 
 </script>
 
 </body>
-
 </html>
