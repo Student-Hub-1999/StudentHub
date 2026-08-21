@@ -78,12 +78,13 @@
 
     if (status !== null) {
 
-        if (status === "Pass") {
-            document.getElementById("status").innerHTML =
-                "✅ PASS";
-        } else {
-            document.getElementById("status").innerHTML =
-                "❌ FAIL";
+        if (status === "Passed" || status === "Pass") {
+    document.getElementById("status").innerHTML =
+        "✅ PASS";
+} else {
+    document.getElementById("status").innerHTML =
+        "❌ FAIL";
+        }
         }
     }
 
