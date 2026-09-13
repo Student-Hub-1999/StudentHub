@@ -34,11 +34,14 @@
         type="password"
         id="studentPassword"
         placeholder="Create Password"
+        oninput="checkPasswordStrength()"
     >
 
     <button type="button" onclick="togglePassword()">
         👁️ Show Password
     </button>
+
+    <p id="passwordStrength"></p>
 
     <input
         type="password"
@@ -71,6 +74,31 @@ function togglePassword() {
 
         password.type = "password";
         button.innerHTML = "👁️ Show Password";
+
+    }
+}
+
+
+function checkPasswordStrength() {
+
+    let password = document.getElementById("studentPassword").value;
+    let strength = document.getElementById("passwordStrength");
+
+    if (password.length === 0) {
+
+        strength.innerHTML = "";
+
+    } else if (password.length < 6) {
+
+        strength.innerHTML = "🔴 Weak Password";
+
+    } else if (password.length < 10) {
+
+        strength.innerHTML = "🟠 Medium Password";
+
+    } else {
+
+        strength.innerHTML = "🟢 Strong Password";
 
     }
 }
