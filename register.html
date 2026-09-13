@@ -36,6 +36,16 @@
         placeholder="Create Password"
     >
 
+    <button type="button" onclick="togglePassword()">
+        👁️ Show Password
+    </button>
+
+    <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirm Password"
+    >
+
     <button onclick="registerStudent()">Register</button>
 
     <p>
@@ -46,35 +56,91 @@
 </div>
 
 <script>
+
+function togglePassword() {
+
+    let password = document.getElementById("studentPassword");
+    let button = event.target;
+
+    if (password.type === "password") {
+
+        password.type = "text";
+        button.innerHTML = "🙈 Hide Password";
+
+    } else {
+
+        password.type = "password";
+        button.innerHTML = "👁️ Show Password";
+
+    }
+}
+
+
 function registerStudent() {
 
     let name = document.getElementById("studentName").value.trim();
     let email = document.getElementById("studentEmail").value.trim();
     let password = document.getElementById("studentPassword").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
 
     if (name === "") {
+
         alert("Please enter your name.");
         return;
+
     }
 
     if (email === "") {
+
         alert("Please enter your email.");
         return;
+
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+
+        alert("Please enter a valid email address.");
+        return;
+
     }
 
     if (password === "") {
+
         alert("Please create a password.");
         return;
+
+    }
+
+    if (password.length < 6) {
+
+        alert("Password must be at least 6 characters.");
+        return;
+
+    }
+
+    if (confirmPassword === "") {
+
+        alert("Please confirm your password.");
+        return;
+
+    }
+
+    if (password !== confirmPassword) {
+
+        alert("❌ Passwords do not match.");
+        return;
+
     }
 
     localStorage.setItem("studentName", name);
     localStorage.setItem("studentEmail", email);
     localStorage.setItem("studentPassword", password);
 
-    alert("Registration successful!");
+    alert("✅ Registration successful!");
 
     window.location.href = "Login.html";
 }
+
 </script>
 
 </body>
