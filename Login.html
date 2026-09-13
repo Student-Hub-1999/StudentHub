@@ -33,6 +33,10 @@
     <button onclick="loginStudent()">Login</button>
 
     <p>
+        <a href="#" onclick="forgotPassword()">🔑 Forgot Password?</a>
+    </p>
+
+    <p>
         Don't have an account?
         <a href="register.html">Register</a>
     </p>
@@ -40,6 +44,7 @@
 </div>
 
 <script>
+
 function loginStudent() {
 
     let name = document.getElementById("loginName").value.trim();
@@ -50,20 +55,67 @@ function loginStudent() {
 
     if (name === savedName && password === savedPassword) {
 
-    localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isLoggedIn", "true");
 
-    alert("Login successful!");
+        alert("Login successful!");
 
-    window.location.href = "dashboard.html";
+        window.location.href = "dashboard.html";
 
-}
-        
-        else {
+    } else {
 
         alert("Invalid name or password. Please register first.");
 
     }
 }
+
+
+function forgotPassword() {
+
+    let savedEmail = localStorage.getItem("studentEmail");
+
+    if (!savedEmail) {
+
+        alert("No registered account found. Please register first.");
+        return;
+
+    }
+
+    let email = prompt("Enter your registered email:");
+
+    if (email === null) {
+        return;
+    }
+
+    email = email.trim();
+
+    if (email === savedEmail) {
+
+        let newPassword = prompt("Enter your new password:");
+
+        if (newPassword === null) {
+            return;
+        }
+
+        newPassword = newPassword.trim();
+
+        if (newPassword === "") {
+
+            alert("Password cannot be empty.");
+            return;
+
+        }
+
+        localStorage.setItem("studentPassword", newPassword);
+
+        alert("✅ Password reset successfully! You can now login with your new password.");
+
+    } else {
+
+        alert("❌ Email does not match the registered email.");
+
+    }
+}
+
 </script>
 
 </body>
