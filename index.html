@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>StudentHub - One Platform for All Competitive Exams</title>
 
-<body>
+<meta name="description" content="StudentHub helps students prepare for SSC, Banking, Railway, UPSC, UP Police and other competitive examinations with notes, mock tests, current affairs and previous year papers.">
 
-<h1>WELCOME TO STUDENT HUB</h1>
+<meta name="theme-color" content="#2563eb">
 
-<header>
+<link rel="stylesheet" href="style.css">
+
+</head><body><!-- Main Heading --><h1>WELCOME TO STUDENT HUB</h1><header>
     <p>ONE PLATFORM FOR ALL COMPETITIVE EXAMS</p>
-</header>
-
-<!-- Navigation -->
-<nav>
+</header><!-- Navigation --><nav>
     <a href="index.html">Home</a>
     <a href="dashboard.html">Dashboard</a>
     <a href="Notes.html">Notes</a>
@@ -26,89 +19,267 @@
     <a href="papers.html">Previous Papers</a>
     <a href="Login.html">Login</a>
     <a href="contact.html">Contact</a>
-</nav>
+</nav><!-- Search --><section class="search-box"><input
+    type="search"
+    id="homeSearch"
+    placeholder="🔍 Search Notes, Mock Tests, Exams..."
+    aria-label="Search study resources and exams"
+    onkeydown="if(event.key === 'Enter') searchHome()"
+>
 
-<!-- Search -->
-<section class="search-box">
-    <input
-        type="text"
-        id="homeSearch"
-        placeholder="🔍 Search Notes, Mock Tests, Exams..."
-    >
-    <button onclick="searchHome()">Search</button>
-</section>
+<button type="button" onclick="searchHome()">Search</button>
 
-<!-- Hero -->
-<section class="hero-banner">
-    <h2>Welcome to StudentHub</h2>
-    <p>Your One-Stop Platform for SSC, Banking, Railway, UPSC & More</p>
+<button type="button" onclick="clearHomeSearch()">Clear</button>
 
-    <a href="mocktest.html" class="hero-btn">
-        Start Mock Test
-    </a>
-</section>
+<p id="searchMessage" aria-live="polite"></p>
 
-<!-- Main Hero -->
-<section class="hero">
-    <h2>Welcome to StudentHub</h2>
-    <p>Prepare for SSC, Banking, Railway, UPSC, UP Police and more.</p>
+</section><!-- Hero Banner --><section class="hero-banner"><h2>Welcome to StudentHub 🎓</h2>
 
-    <a href="dashboard.html">
-        <button>Go to Dashboard</button>
-    </a>
-</section>
+<p>
+    Your One-Stop Platform for SSC, Banking, Railway, UPSC &amp; More
+</p>
 
-<!-- Statistics -->
-<section class="stats">
+<a href="mocktest.html" class="hero-btn">
+    Start Mock Test
+</a>
 
-    <div class="card">
-        <h2>5000+</h2>
-        <p>Students</p>
-    </div>
+</section><!-- Main Hero --><section class="hero"><h2>Prepare for Your Dream Exam</h2>
 
-    <div class="card">
-        <h2>1000+</h2>
-        <p>Study Notes</p>
-    </div>
+<p>
+    Prepare for SSC, Banking, Railway, UPSC, UP Police and more.
+</p>
 
-    <div class="card">
-        <h2>300+</h2>
-        <p>Mock Tests</p>
-    </div>
+<a href="dashboard.html">
+    <button type="button">Go to Dashboard</button>
+</a>
 
-    <div class="card">
-        <h2>50+</h2>
-        <p>Exam Categories</p>
-    </div>
+</section><!-- Statistics --><section class="stats"><div class="card">
+    <h2>5000+</h2>
+    <p>Students</p>
+</div>
 
-</section>
+<div class="card">
+    <h2>1000+</h2>
+    <p>Study Notes</p>
+</div>
 
-<!-- Daily Motivation -->
-<div style="background:#ffffff; border:1px solid #e2e8f0; border-left:6px solid #2563eb; border-radius:12px; padding:18px; margin:20px 15px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.05); font-family:sans-serif;">
+<div class="card">
+    <h2>300+</h2>
+    <p>Mock Tests</p>
+</div>
 
-    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-        <span style="font-size:1.2rem;">💡</span>
+<div class="card">
+    <h2>50+</h2>
+    <p>Exam Categories</p>
+</div>
 
-        <span style="font-weight:bold; color:#2563eb; font-size:0.85rem; letter-spacing:0.5px; text-transform:uppercase;">
-            Daily Motivation
-        </span>
-    </div>
+</section><!-- Daily Motivation --><section class="daily-motivation" style="
+    background:#ffffff;
+    border:1px solid #e2e8f0;
+    border-left:6px solid #2563eb;
+    border-radius:12px;
+    padding:18px;
+    margin:20px 15px;
+    box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);
+    font-family:sans-serif;
+"><div style="
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+">
 
-    <p id="quote-text" style="font-size:1rem; font-weight:600; color:#1e293b; margin:5px 0 0 0; line-height:1.4;">
-        "The secret of getting ahead is getting started."
-    </p>
+    <span style="font-size:1.2rem;">💡</span>
 
-    <p id="quote-author" style="font-size:0.85rem; color:#64748b; font-style:italic; margin:4px 0 12px 0;">
-        - Mark Twain
-    </p>
-
-    <button onclick="getNewQuote()" style="background:#2563eb; color:white; border:none; padding:8px 16px; border-radius:8px; font-weight:500; font-size:0.85rem; cursor:pointer;">
-        Next Quote 🚀
-    </button>
+    <span style="
+        font-weight:bold;
+        color:#2563eb;
+        font-size:0.85rem;
+        letter-spacing:0.5px;
+        text-transform:uppercase;
+    ">
+        Daily Motivation
+    </span>
 
 </div>
 
-<script>
+<p
+    id="quote-text"
+    style="
+        font-size:1rem;
+        font-weight:600;
+        color:#1e293b;
+        margin:5px 0 0 0;
+        line-height:1.4;
+    "
+>
+    "The secret of getting ahead is getting started."
+</p>
+
+<p
+    id="quote-author"
+    style="
+        font-size:0.85rem;
+        color:#64748b;
+        font-style:italic;
+        margin:4px 0 12px 0;
+    "
+>
+    - Mark Twain
+</p>
+
+<button
+    type="button"
+    onclick="getNewQuote()"
+    style="
+        background:#2563eb;
+        color:white;
+        border:none;
+        padding:8px 16px;
+        border-radius:8px;
+        font-weight:500;
+        font-size:0.85rem;
+        cursor:pointer;
+    "
+>
+    Next Quote 🚀
+</button>
+
+</section><!-- Latest Announcement --><section class="announcement"><h2>📢 Latest Announcement</h2>
+
+<p>
+    Stay updated with competitive exam notifications,
+    mock tests and current affairs.
+</p>
+
+<a href="currentaffairs.html">
+    <button type="button">Read Current Affairs</button>
+</a>
+
+</section><!-- Study Resources --><section class="categories"><h2>📚 Study Resources</h2>
+
+<div class="features">
+
+    <a href="Notes.html" class="feature-link">
+        <div class="feature-card">
+
+            <h3>📚 Notes</h3>
+
+            <p>
+                Chapter-wise and subject-wise study notes.
+            </p>
+
+        </div>
+    </a>
+
+    <a href="mocktest.html" class="feature-link">
+        <div class="feature-card">
+
+            <h3>📝 Mock Tests</h3>
+
+            <p>
+                Practice with full-length and topic-wise mock tests.
+            </p>
+
+        </div>
+    </a>
+
+    <a href="currentaffairs.html" class="feature-link">
+        <div class="feature-card">
+
+            <h3>📰 Current Affairs</h3>
+
+            <p>
+                Daily, weekly and monthly current affairs updates.
+            </p>
+
+        </div>
+    </a>
+
+    <a href="papers.html" class="feature-link">
+        <div class="feature-card">
+
+            <h3>📄 Previous Year Papers</h3>
+
+            <p>
+                Explore previous year question paper resources.
+            </p>
+
+        </div>
+    </a>
+
+</div>
+
+</section><!-- Popular Exams --><section class="exams"><h2>🎯 Popular Exams</h2>
+
+<div class="exam-grid">
+
+    <a href="ssc-page.html" class="exam-link">
+        <div class="card">📘 SSC CGL</div>
+    </a>
+
+    <a href="ssc-page.html" class="exam-link">
+        <div class="card">📗 SSC CHSL</div>
+    </a>
+
+    <a href="ssc-page.html" class="exam-link">
+        <div class="card">📙 SSC MTS</div>
+    </a>
+
+    <a href="ssc-page.html" class="exam-link">
+        <div class="card">🛡️ SSC GD</div>
+    </a>
+
+    <a href="banking.html" class="exam-link">
+        <div class="card">🏦 IBPS PO</div>
+    </a>
+
+    <a href="banking.html" class="exam-link">
+        <div class="card">💰 SBI PO</div>
+    </a>
+
+    <a href="railway.html" class="exam-link">
+        <div class="card">🚆 RRB NTPC</div>
+    </a>
+
+    <a href="railway.html" class="exam-link">
+        <div class="card">🚉 Railway Group D</div>
+    </a>
+
+    <a href="police.html" class="exam-link">
+        <div class="card">👮 UP Police</div>
+    </a>
+
+    <a href="ssc-page.html" class="exam-link">
+        <div class="card">📚 All Exams</div>
+    </a>
+
+</div>
+
+</section><!-- Footer --><footer><h3>StudentHub</h3>
+
+<p>Your one-stop platform for exam preparation.</p>
+
+<p>© 2026 StudentHub. All Rights Reserved.</p>
+
+</footer><!-- Bottom Navigation --><div class="bottom-nav"><a href="index.html">
+    🏠<br>Home
+</a>
+
+<a href="Notes.html">
+    📚<br>Notes
+</a>
+
+<a href="mocktest.html">
+    📝<br>Tests
+</a>
+
+<a href="Login.html">
+    👤<br>Login
+</a>
+
+</div><!-- Existing JavaScript File --><script src="script.js"></script><!-- Daily Motivation Script --><script>
+
 const quotes = [
     {
         text: "Education is the passport to the future.",
@@ -129,271 +300,130 @@ const quotes = [
     {
         text: "The beautiful thing about learning is that nobody can take it away from you.",
         author: "B.B. King"
+    },
+    {
+        text: "Success is the sum of small efforts repeated day in and day out.",
+        author: "Robert Collier"
+    },
+    {
+        text: "Believe you can and you're halfway there.",
+        author: "Theodore Roosevelt"
     }
 ];
 
 function getNewQuote() {
+
     const randomIndex = Math.floor(Math.random() * quotes.length);
 
     document.getElementById("quote-text").innerText =
-        `"${quotes[randomIndex].text}"`;
+        '"' + quotes[randomIndex].text + '"';
 
     document.getElementById("quote-author").innerText =
-        `- ${quotes[randomIndex].author}`;
-}
-</script>
-
-<!-- Latest Announcement -->
-<section class="announcement">
-
-    <h2>📢 Latest Announcement</h2>
-
-    <p>
-        SSC CGL 2026 Notification Released.
-        New Mock Tests and Current Affairs have been updated.
-    </p>
-
-    <a href="currentaffairs.html">
-        <button>Read More</button>
-    </a>
-
-</section>
-
-
-<!-- ============================= -->
-<!-- 📚 STUDY RESOURCES -->
-<!-- ============================= -->
-
-<section class="categories">
-
-    <h2>📚 Study Resources</h2>
-
-    <div class="features">
-
-        <a href="notes.html" class="feature-link">
-            <div class="feature-card">
-                <h3>📚 Notes</h3>
-                <p>Chapter-wise and subject-wise study notes.</p>
-            </div>
-        </a>
-
-        <a href="mocktest.html" class="feature-link">
-            <div class="feature-card">
-                <h3>📝 Mock Tests</h3>
-                <p>Practice with full-length and topic-wise mock tests.</p>
-            </div>
-        </a>
-
-        <a href="currentaffairs.html" class="feature-link">
-            <div class="feature-card">
-                <h3>📰 Current Affairs</h3>
-                <p>Daily, weekly and monthly current affairs updates.</p>
-            </div>
-        </a>
-
-        <a href="papers.html" class="feature-link">
-            <div class="feature-card">
-                <h3>📄 Previous Year Papers</h3>
-                <p>Previous year question papers with solutions.</p>
-            </div>
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- ============================= -->
-<!-- 🎯 POPULAR EXAMS -->
-<!-- ============================= -->
-
-<section class="exams">
-
-    <h2>🎯 Popular Exams</h2>
-
-    <div class="exam-grid">
-
-        <a href="ssc-page.html">
-            <div class="card">
-                📘 SSC CGL
-            </div>
-        </a>
-
-        <a href="ssc-page.html">
-            <div class="card">
-                📗 SSC CHSL
-            </div>
-        </a>
-
-        <a href="ssc-page.html">
-            <div class="card">
-                📙 SSC MTS
-            </div>
-        </a>
-
-        <a href="ssc-page.html">
-            <div class="card">
-                🛡️ SSC GD
-            </div>
-        </a>
-
-        <a href="banking.html">
-            <div class="card">
-                🏦 IBPS PO
-            </div>
-        </a>
-
-        <a href="banking.html">
-            <div class="card">
-                💰 SBI PO
-            </div>
-        </a>
-
-        <a href="railway.html">
-            <div class="card">
-                🚆 RRB NTPC
-            </div>
-        </a>
-
-        <a href="railway.html">
-            <div class="card">
-                🚉 Railway Group D
-            </div>
-        </a>
-
-        <a href="police.html">
-            <div class="card">
-                👮 UP Police
-            </div>
-        </a>
-
-        <a href="ssc-page.html">
-            <div class="card">
-                📚 All Exams
-            </div>
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- Footer -->
-<footer>
-
-    <h3>StudentHub</h3>
-
-    <p>Your one-stop platform for exam preparation.</p>
-
-    <p>© 2026 StudentHub. All Rights Reserved.</p>
-
-</footer>
-
-
-<!-- Bottom Navigation -->
-<div class="bottom-nav">
-
-    <a href="index.html">
-        🏠<br>Home
-    </a>
-
-    <a href="notes.html">
-        📚<br>Notes
-    </a>
-
-    <a href="mocktest.html">
-        📝<br>Tests
-    </a>
-
-    <a href="login.html">
-        👤<br>Profile
-    </a>
-
-</div>
-
-
-<script src="script.js"></script>
-
-<script>
-function searchHome() {
-
-    let input = document.getElementById("homeSearch");
-
-    let searchText = input.value.toLowerCase().trim();
-
-    let examCards = document.querySelectorAll(".exam-grid .card");
-    let resourceCards = document.querySelectorAll(".features .feature-card");
-
-    examCards.forEach(function(card) {
-
-        let text = card.innerText.toLowerCase();
-
-        if (searchText === "" || text.includes(searchText)) {
-            card.parentElement.style.display = "";
-        } else {
-            card.parentElement.style.display = "none";
-        }
-
-    });
-
-    resourceCards.forEach(function(card) {
-
-        let text = card.innerText.toLowerCase();
-
-        if (searchText === "" || text.includes(searchText)) {
-            card.parentElement.style.display = "";
-        } else {
-            card.parentElement.style.display = "none";
-        }
-
-    });
+        "- " + quotes[randomIndex].author;
 
 }
-</script>
-<script>
+
+
 function searchHome() {
 
-    let input = document.getElementById("homeSearch");
-    let searchText = input.value.toLowerCase().trim();
+    const input = document.getElementById("homeSearch");
+    const searchText = input.value.toLowerCase().trim();
+    const message = document.getElementById("searchMessage");
+
+    const examLinks = document.querySelectorAll(".exam-grid .exam-link");
+    const resourceLinks = document.querySelectorAll(".features .feature-link");
 
     if (searchText === "") {
-        alert("Please type something to search.");
+
+        message.textContent = "Please type an exam or resource to search.";
+
         return;
     }
 
-    let allItems = document.querySelectorAll(
-        ".exam-grid .card, .features .feature-card"
-    );
+    let matchCount = 0;
+    let firstMatch = null;
 
-    let found = false;
+    // Search exam cards
+    examLinks.forEach(function(link) {
 
-    allItems.forEach(function(item) {
+        const text = link.innerText.toLowerCase();
+        const matches = text.includes(searchText);
 
-        let text = item.innerText.toLowerCase();
+        link.style.display = matches ? "" : "none";
 
-        if (text.includes(searchText)) {
+        if (matches) {
 
-            item.scrollIntoView({
+            matchCount++;
+
+            if (!firstMatch) {
+                firstMatch = link;
+            }
+
+        }
+
+    });
+
+    // Search study resource cards
+    resourceLinks.forEach(function(link) {
+
+        const text = link.innerText.toLowerCase();
+        const matches = text.includes(searchText);
+
+        link.style.display = matches ? "" : "none";
+
+        if (matches) {
+
+            matchCount++;
+
+            if (!firstMatch) {
+                firstMatch = link;
+            }
+
+        }
+
+    });
+
+    if (matchCount > 0) {
+
+        message.textContent =
+            "✅ Found " + matchCount + " matching result(s).";
+
+        if (firstMatch) {
+
+            firstMatch.scrollIntoView({
                 behavior: "smooth",
                 block: "center"
             });
 
-            item.style.border = "3px solid blue";
-
-            setTimeout(function() {
-                item.style.border = "";
-            }, 2000);
-
-            found = true;
         }
 
-    });
+    } else {
 
-    if (!found) {
-        alert("No result found for: " + searchText);
+        message.textContent =
+            "❌ No matching exam or resource found. Try SSC, Notes, Mock Tests, Banking or Railway.";
+
     }
 
 }
-</script>
-</body>
+
+
+function clearHomeSearch() {
+
+    document.getElementById("homeSearch").value = "";
+
+    document.getElementById("searchMessage").textContent = "";
+
+    const allLinks = document.querySelectorAll(
+        ".exam-grid .exam-link, .features .feature-link"
+    );
+
+    allLinks.forEach(function(link) {
+
+        link.style.display = "";
+
+    });
+
+}
+
+</script></body>
 </html>
