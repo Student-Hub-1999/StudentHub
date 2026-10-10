@@ -1,71 +1,63 @@
-⁸<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration - StudentHub</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
-<nav>
+<body><nav>
     <a href="index.html">Home</a>
     <a href="Login.html">Login</a>
-</nav>
+</nav><h1>📝 Student Registration</h1><div class="login-box"><input type="text" id="studentName" placeholder="Full Name">
 
-<h1>📝 Student Registration</h1>
+<input type="email" id="studentEmail" placeholder="Email">
 
-<div class="login-box">
+<input
+    type="password"
+    id="studentPassword"
+    placeholder="Create Password"
+    oninput="checkPasswordStrength()"
+>
 
-    <input
-        type="text"
-        id="studentName"
-        placeholder="Full Name"
-    >
+<button type="button" onclick="togglePassword(this)">
+    👁️ Show Password
+</button>
 
-    <input
-        type="email"
-        id="studentEmail"
-        placeholder="Email"
-    >
+<p id="passwordStrength"></p>
 
-    <input
-        type="password"
-        id="studentPassword"
-        placeholder="Create Password"
-        oninput="checkPasswordStrength()"
-    >
-
-    <button type="button" onclick="togglePassword()">
-    </button>
-
-    <p id="passwordStrength"></p>
-
-    <input
+<input
     type="password"
     id="confirmPassword"
     placeholder="Confirm Password"
 >
 
-<button type="button" onclick="toggleConfirmPassword()">
+<button type="button" onclick="toggleConfirmPassword(this)">
     👁️ Show Confirm Password
 </button>
 
-    <button onclick="registerStudent()">Register</button>
+<button type="button" onclick="registerStudent()">Register</button>
 
-    <p>
-        Already have an account?
-        <a href="Login.html">Login</a>
-    </p>
+<p>
+    Already have an account?
+    <a href="Login.html">Login</a>
+</p>
 
-</div>
+</div><script>
 
-<script>
+function togglePassword(button) {
+    let password = document.getElementById("studentPassword");
 
-function toggleConfirmPassword() {
+    if (password.type === "password") {
+        password.type = "text";
+        button.innerHTML = "🙈 Hide Password";
+    } else {
+        password.type = "password";
+        button.innerHTML = "👁️ Show Password";
+    }
+}
+
+function toggleConfirmPassword(button) {
     let password = document.getElementById("confirmPassword");
-    let button = event.target;
 
     if (password.type === "password") {
         password.type = "text";
@@ -76,86 +68,50 @@ function toggleConfirmPassword() {
     }
 }
 
-
 function checkPasswordStrength() {
-
     let password = document.getElementById("studentPassword").value;
     let strength = document.getElementById("passwordStrength");
 
     if (password.length === 0) {
-
         strength.innerHTML = "";
-
     } else if (password.length < 6) {
-
         strength.innerHTML = "🔴 Weak Password";
-
     } else if (password.length < 10) {
-
         strength.innerHTML = "🟠 Medium Password";
-
     } else {
-
         strength.innerHTML = "🟢 Strong Password";
-
     }
 }
 
-
 function registerStudent() {
-
     let name = document.getElementById("studentName").value.trim();
     let email = document.getElementById("studentEmail").value.trim();
     let password = document.getElementById("studentPassword").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
 
     if (name === "") {
-
         alert("Please enter your name.");
         return;
-
     }
 
-    if (email === "") {
-
-        alert("Please enter your email.");
-        return;
-
-    }
-
-    if (!email.includes("@") || !email.includes(".")) {
-
+    if (email === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         alert("Please enter a valid email address.");
         return;
-
-    }
-
-    if (password === "") {
-
-        alert("Please create a password.");
-        return;
-
     }
 
     if (password.length < 6) {
-
         alert("Password must be at least 6 characters.");
         return;
-
     }
 
     if (confirmPassword === "") {
-
         alert("Please confirm your password.");
         return;
-
     }
 
     if (password !== confirmPassword) {
-
         alert("❌ Passwords do not match.");
         return;
-
     }
 
     localStorage.setItem("studentName", name);
@@ -167,7 +123,5 @@ function registerStudent() {
     window.location.href = "Login.html";
 }
 
-</script>
-
-</body>
+</script></body>
 </html>
