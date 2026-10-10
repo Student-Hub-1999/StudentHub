@@ -1,49 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login - StudentHub</title>
     <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<nav>
+</head><body><nav>
     <a href="index.html">Home</a>
     <a href="register.html">Register</a>
-</nav>
+</nav><h1>🔐 Student Login</h1><div class="login-box"><input
+    type="text"
+    id="loginName"
+    placeholder="Enter your name"
+    autocomplete="username"
+>
 
-<h1>🔐 Student Login</h1>
+<input
+    type="password"
+    id="loginPassword"
+    placeholder="Enter your password"
+    autocomplete="current-password"
+>
 
-<div class="login-box">
+<button type="button" onclick="toggleLoginPassword(this)">
+    👁️ Show Password
+</button>
 
-    <input
-        type="text"
-        id="loginName"
-        placeholder="Enter your name"
-    >
+<br><br>
 
-    <input
-        type="password"
-        id="loginPassword"
-        placeholder="Enter your password"
-    >
+<button type="button" onclick="loginStudent()">Login</button>
 
-    <button onclick="loginStudent()">Login</button>
+<p>
+    <a href="#" onclick="forgotPassword(); return false;">
+        🔑 Forgot Password?
+    </a>
+</p>
 
-    <p>
-        <a href="#" onclick="forgotPassword()">🔑 Forgot Password?</a>
-    </p>
+<p>
+    Don't have an account?
+    <a href="register.html">Register</a>
+</p>
 
-    <p>
-        Don't have an account?
-        <a href="register.html">Register</a>
-    </p>
+</div><script>
 
-</div>
+function toggleLoginPassword(button) {
 
-<script>
+    let password = document.getElementById("loginPassword");
+
+    if (password.type === "password") {
+        password.type = "text";
+        button.innerHTML = "🙈 Hide Password";
+    } else {
+        password.type = "password";
+        button.innerHTML = "👁️ Show Password";
+    }
+}
+
 
 function loginStudent() {
 
@@ -52,6 +63,11 @@ function loginStudent() {
 
     let savedName = localStorage.getItem("studentName");
     let savedPassword = localStorage.getItem("studentPassword");
+
+    if (name === "" || password === "") {
+        alert("Please enter your name and password.");
+        return;
+    }
 
     if (name === savedName && password === savedPassword) {
 
@@ -63,7 +79,7 @@ function loginStudent() {
 
     } else {
 
-        alert("Invalid name or password. Please register first.");
+        alert("Invalid name or password. Please try again.");
 
     }
 }
@@ -74,10 +90,8 @@ function forgotPassword() {
     let savedEmail = localStorage.getItem("studentEmail");
 
     if (!savedEmail) {
-
         alert("No registered account found. Please register first.");
         return;
-
     }
 
     let email = prompt("Enter your registered email:");
@@ -88,9 +102,9 @@ function forgotPassword() {
 
     email = email.trim();
 
-    if (email === savedEmail) {
+    if (email.toLowerCase() === savedEmail.toLowerCase()) {
 
-        let newPassword = prompt("Enter your new password:");
+        let newPassword = prompt("Enter your new password (at least 6 characters):");
 
         if (newPassword === null) {
             return;
@@ -98,16 +112,14 @@ function forgotPassword() {
 
         newPassword = newPassword.trim();
 
-        if (newPassword === "") {
-
-            alert("Password cannot be empty.");
+        if (newPassword.length < 6) {
+            alert("Password must be at least 6 characters.");
             return;
-
         }
 
         localStorage.setItem("studentPassword", newPassword);
 
-        alert("✅ Password reset successfully! You can now login with your new password.");
+        alert("✅ Password reset successfully! You can now log in with your new password.");
 
     } else {
 
@@ -116,7 +128,5 @@ function forgotPassword() {
     }
 }
 
-</script>
-
-</body>
+</script></body>
 </html>
