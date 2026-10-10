@@ -44,10 +44,14 @@
     <p id="passwordStrength"></p>
 
     <input
-        type="password"
-        id="confirmPassword"
-        placeholder="Confirm Password"
-    >
+    type="password"
+    id="confirmPassword"
+    placeholder="Confirm Password"
+>
+
+<button type="button" onclick="toggleConfirmPassword()">
+    👁️ Show Confirm Password
+</button>
 
     <button onclick="registerStudent()">Register</button>
 
@@ -60,21 +64,16 @@
 
 <script>
 
-function togglePassword() {
-
-    let password = document.getElementById("studentPassword");
+function toggleConfirmPassword() {
+    let password = document.getElementById("confirmPassword");
     let button = event.target;
 
     if (password.type === "password") {
-
         password.type = "text";
-        button.innerHTML = "🙈 Hide Password";
-
+        button.innerHTML = "🙈 Hide Confirm Password";
     } else {
-
         password.type = "password";
-        button.innerHTML = "👁️ Show Password";
-
+        button.innerHTML = "👁️ Show Confirm Password";
     }
 }
 
